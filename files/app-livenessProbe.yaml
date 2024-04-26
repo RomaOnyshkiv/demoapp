@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app-livenessprob
+  namespace: demo
+spec:
+  containers:
+    - name: app
+      image: gcr.io/doki-417600/demo:v1.0.0
+      ports:
+        - containerPort: 8080
+          name: http
+      livenessProbe:
+        httpGet:
+          path: /
+          port: 8080
+        initialDelaySeconds: 5
+        timeoutSeconds: 180
+        periodSeconds: 600
+        failureThreshold: 5

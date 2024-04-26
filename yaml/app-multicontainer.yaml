@@ -18,6 +18,4 @@ spec:
         - name: html
           mountPath: /html
       command: ["/bin/sh", "-c"]
-      args:
-        - >-
-          while true; do echo $(date) >> /html/index.html; sleep 1; done
+      args: ["while true; do echo $(date) >> /html/index.html; sleep 1; done"]
